@@ -1,3 +1,6 @@
+# implementation from https://github.com/busyyang/COVID-19
+
+from ac_covidnet import *
 import covidnet
 import numpy as np
 import tensorflow as tf
@@ -32,7 +35,7 @@ def train():
     x = np.load('data/x_train.npy')
     y = np.load('data/y_train.npy')
     y = tf.keras.utils.to_categorical(y, 4)
-    model = covidnet.keras_model_build()
+    model = ACCovidNet()
     # model.summary()
     opt=tf.keras.optimizers.Adam(lr=0.00001)
     model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])

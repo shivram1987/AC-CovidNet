@@ -24,7 +24,7 @@ def Pepx(filters, kernel=(1, 1)):
 # usage:
 # x = Pepx(params) (x)
 
-def CovidNet():
+def ACCovidNet():
   i = Input(shape=(480, 480, 3))
   ip = MaxPooling2D(pool_size=(2, 2), padding='same') (i)
   c1 = Conv2D(kernel_size=(7, 7), filters=56, activation='relu', padding='same') (ip)
@@ -96,5 +96,6 @@ def CovidNet():
   model = Model(inputs = i, outputs = fc3)
   return model
 
-model = CovidNet()
-model.summary()
+if __name__ == '__main__':
+    model = ACCovidNet()
+    model.summary()
